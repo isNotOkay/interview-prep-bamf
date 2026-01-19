@@ -1,7 +1,7 @@
 import {Component, input} from '@angular/core';
 
 @Component({
-  selector: 'app-list-item',
+  selector: 'ko-list-item',
   imports: [],
   templateUrl: './list-item.component.html',
   styleUrl: './list-item.component.scss',

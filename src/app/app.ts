@@ -10,7 +10,7 @@ export interface User {
 }
 
 @Component({
-  selector: 'app-root',
+  selector: 'ko-root',
   imports: [Header, ListItemComponent],
   templateUrl: './app.html',
   styleUrl: './app.scss'

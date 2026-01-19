@@ -1,6 +1,6 @@
-<app-header [firstName]="user.firstName" [lastName]="user.lastName"></app-header>
+<ko-header [firstName]="user.firstName" [lastName]="user.lastName"></ko-header>
 <div>
   @for (todo of todos(); track todo.id; let index = $index) {
-    <app-list-item [name]="index + 1 + ': ' + todo.todo"></app-list-item>
+    <ko-list-item [name]="index + 1 + ': ' + todo.todo"></ko-list-item>
   }
 </div>
