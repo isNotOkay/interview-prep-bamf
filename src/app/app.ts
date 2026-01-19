@@ -1,6 +1,7 @@
 import {Component, inject, OnInit} from '@angular/core';
 import {Header} from './header/header';
 import {Todo, TodoService} from './services/todo.service';
+import {ListItemComponent} from './components/list-item/list-item.component';
 
 
 export interface User {
@@ -10,7 +11,7 @@ export interface User {
 
 @Component({
   selector: 'app-root',
-  imports: [Header],
+  imports: [Header, ListItemComponent],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

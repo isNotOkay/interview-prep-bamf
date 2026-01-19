@@ -11,7 +11,8 @@
       "schematics": {
         "@schematics/angular:component": {
           "path": "src/app/components",
-          "type": "component"
+          "type": "component",
+          "style": "scss"
         },
         "@schematics/angular:service": {
           "path": "src/app/services",

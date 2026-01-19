@@ -1,8 +1,6 @@
 <app-header [firstName]="user.firstName" [lastName]="user.lastName"></app-header>
 <div>
   @for (todo of todos; track todo.id; let index = $index) {
-    <div>
-      {{ index + 1 }}: {{ todo.todo }}
-    </div>
+    <app-list-item [name]="index + 1 + todo.todo"></app-list-item>
   }
 </div>
