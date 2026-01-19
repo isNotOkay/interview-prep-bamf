@@ -1,6 +1,6 @@
 <ko-header [firstName]="user.firstName" [lastName]="user.lastName"></ko-header>
-<div>
-  @for (todo of todos(); track todo.id; let index = $index) {
-    <ko-list-item [name]="index + 1 + ': ' + todo.todo"></ko-list-item>
-  }
-</div>
+
+
+<router-outlet></router-outlet>
+
+

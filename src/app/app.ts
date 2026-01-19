@@ -1,8 +1,6 @@
-import {Component, inject, OnInit, signal, WritableSignal,} from '@angular/core';
+import {Component,} from '@angular/core';
 import {Header} from './header/header';
-import {Todo, TodoService} from './services/todo.service';
-import {ListItemComponent} from './components/list-item/list-item.component';
-
+import {RouterOutlet} from '@angular/router';
 
 export interface User {
   firstName: string;
@@ -11,23 +9,13 @@ export interface User {
 
 @Component({
   selector: 'ko-root',
-  imports: [Header, ListItemComponent],
+  imports: [Header, RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
-export class App implements OnInit {
+export class App {
   protected readonly user: User = {
     firstName: 'Max',
     lastName: 'Mustermann',
-  }
-  private readonly todoService = inject(TodoService);
-  protected todos: WritableSignal<Todo[]> = signal([]);
-
-  ngOnInit(): void {
-    this.todoService.getTodos().subscribe({
-      next: (todos) => {
-        this.todos.set(todos);
-      }
-    })
   }
 }

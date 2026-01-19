@@ -1,8 +1,11 @@
 import {Component, input} from '@angular/core';
+import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'ko-header',
-  imports: [],
+  imports: [
+    RouterLink
+  ],
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })
