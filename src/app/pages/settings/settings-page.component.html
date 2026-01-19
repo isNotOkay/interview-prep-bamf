@@ -3,9 +3,15 @@
   <div>
     <label for="firstname">First Name:</label>
     <input type="text" formControlName="firstName">
+    @if (form.controls.firstName.dirty && form.controls.firstName.invalid) {
+      <div class="error">Firstname is required.</div>
+    }
   </div>
   <div>
     <label for="lastname">Last Name:</label>
     <input type="text" formControlName="lastName">
+    @if (form.controls.lastName.dirty && form.controls.lastName.invalid) {
+      <div class="error">LastName is required.</div>
+    }
   </div>
 </div>
