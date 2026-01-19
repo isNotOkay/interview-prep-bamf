@@ -1,1 +1,11 @@
-<p>settings works!</p>
+<h2>Settings</h2>
+<div [formGroup]="form">
+  <div>
+    <label for="firstname">First Name:</label>
+    <input type="text" formControlName="firstName">
+  </div>
+  <div>
+    <label for="lastname">Last Name:</label>
+    <input type="text" formControlName="lastName">
+  </div>
+</div>
