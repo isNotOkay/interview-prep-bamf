@@ -1,4 +1,4 @@
-import {Component, inject, OnInit} from '@angular/core';
+import {Component, inject, OnInit, signal, WritableSignal,} from '@angular/core';
 import {Header} from './header/header';
 import {Todo, TodoService} from './services/todo.service';
 import {ListItemComponent} from './components/list-item/list-item.component';
@@ -21,12 +21,12 @@ export class App implements OnInit {
     lastName: 'Mustermann',
   }
   private readonly todoService = inject(TodoService);
-  protected todos: Todo[] = [];
+  protected todos: WritableSignal<Todo[]> = signal([]);
 
   ngOnInit(): void {
     this.todoService.getTodos().subscribe({
       next: (todos) => {
-        this.todos = todos
+        this.todos.set(todos);
       }
     })
   }
