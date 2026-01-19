@@ -1,12 +1,21 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {Component} from '@angular/core';
+import {Header} from './header/header';
+
+
+export interface User {
+  firstName: string;
+  lastName: string;
+}
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [Header],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('interview-prep-bamf');
+  protected readonly user: User = {
+    firstName: 'Max',
+    lastName: 'Mustermann',
+  }
 }
