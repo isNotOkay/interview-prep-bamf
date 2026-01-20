@@ -1,6 +1,7 @@
 import {Component, inject, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {SettingsState, SettingsStateService} from '../../services/settings-state.service';
+import {Subscription} from 'rxjs';
 
 interface SettingsForm {
   firstName: FormControl<string>;
@@ -21,19 +22,12 @@ export class SettingsPageComponent implements OnInit, OnDestroy {
     lastName: new FormControl('', {nonNullable: true, validators: Validators.required}),
   });
   private readonly settingsStateService = inject(SettingsStateService);
+  private stateChangesSubscription?: Subscription;
+  private valueChangesSubscription?: Subscription;
 
   ngOnInit(): void {
-    this.settingsStateService.stateChanges().subscribe((state) => {
-      if (state !== undefined) {
-        this.form.setValue(state);
-      }
-
-      this.form.valueChanges.subscribe(() => {
-        const firstName = this.form.value.firstName;
-        const lastName = this.form.value.lastName;
-        console.log(firstName, lastName);
-      });
-    })
+    this.listenToStateChanges();
+    this.listenToFormValueChanges();
   }
 
   ngOnDestroy(): void {
@@ -41,6 +35,25 @@ export class SettingsPageComponent implements OnInit, OnDestroy {
       firstName: this.form.controls.firstName.value,
       lastName: this.form.controls.lastName.value,
     }
-    this.settingsStateService.setState(state)
+    this.settingsStateService.setState(state);
+
+    this.stateChangesSubscription?.unsubscribe();
+    this.valueChangesSubscription?.unsubscribe();
+  }
+
+  private listenToFormValueChanges(): void {
+    this.valueChangesSubscription = this.form.valueChanges.subscribe(() => {
+      const firstName = this.form.value.firstName;
+      const lastName = this.form.value.lastName;
+      console.log(firstName, lastName);
+    });
+  }
+
+  private listenToStateChanges(): void {
+    this.stateChangesSubscription = this.settingsStateService.stateChanges().subscribe((state) => {
+      if (state !== undefined) {
+        this.form.setValue(state);
+      }
+    })
   }
 }
