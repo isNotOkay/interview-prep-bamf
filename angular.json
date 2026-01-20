@@ -85,6 +85,17 @@
         },
         "test": {
           "builder": "@angular/build:unit-test"
+        },
+        "e2e": {
+          "builder": "playwright-ng-schematics:playwright",
+          "options": {
+            "devServerTarget": "interview-prep-bamf:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "interview-prep-bamf:serve:production"
+            }
+          }
         }
       }
     },
@@ -110,6 +121,17 @@
           "builder": "@angular/build:unit-test",
           "options": {
             "tsConfig": "projects/my-lib/tsconfig.spec.json"
+          }
+        },
+        "e2e": {
+          "builder": "playwright-ng-schematics:playwright",
+          "options": {
+            "devServerTarget": "my-lib:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "my-lib:serve:production"
+            }
           }
         }
       }
