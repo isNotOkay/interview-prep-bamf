@@ -1,4 +1,4 @@
-import {Component, inject, OnInit, signal, WritableSignal} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject, OnInit, signal, WritableSignal} from '@angular/core';
 import {ListItemComponent} from '../../components/list-item/list-item.component';
 import {Todo, TodoService} from '../../services/todo.service';
 
@@ -10,6 +10,7 @@ import {Todo, TodoService} from '../../services/todo.service';
   ],
   templateUrl: './todos-overview-page.component.html',
   styleUrl: './todos-overview-page.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TodosOverviewPageComponent implements OnInit {
   private readonly todoService = inject(TodoService);

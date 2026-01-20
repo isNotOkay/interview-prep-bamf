@@ -1,4 +1,4 @@
-import {Component, inject, OnDestroy, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {SettingsState, SettingsStateService} from '../../services/settings-state.service';
 import {Subscription} from 'rxjs';
@@ -18,6 +18,7 @@ interface SettingsForm {
   ],
   templateUrl: './settings-page.component.html',
   styleUrl: './settings-page.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SettingsPageComponent implements OnInit, OnDestroy {
   protected readonly form: FormGroup<SettingsForm> = new FormGroup({

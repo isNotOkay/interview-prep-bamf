@@ -1,7 +1,6 @@
-import {Component,} from '@angular/core';
+import {ChangeDetectionStrategy, Component,} from '@angular/core';
 import {Header} from './header/header';
 import {RouterOutlet} from '@angular/router';
-import { MyLib } from 'my-lib';
 
 export interface User {
   firstName: string;
@@ -10,9 +9,10 @@ export interface User {
 
 @Component({
   selector: 'ko-root',
-  imports: [Header, RouterOutlet, MyLib],
+  imports: [Header, RouterOutlet],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  styleUrl: './app.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class App {
   protected readonly user: User = {
