@@ -14,6 +14,10 @@
           "type": "component",
           "style": "scss"
         },
+        "@schematics/angular:directive": {
+          "path": "src/app/directives",
+          "type": "directive"
+        },
         "@schematics/angular:service": {
           "path": "src/app/services",
           "type": "service"

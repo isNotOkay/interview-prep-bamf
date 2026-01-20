@@ -1,12 +1,16 @@
 import {Component, input} from '@angular/core';
+import {HighlightCompletedDirective} from '../../directives/highlight-completed.directive';
+import {Todo} from '../../services/todo.service';
 
 @Component({
   selector: 'ko-list-item',
-  imports: [],
+  imports: [
+    HighlightCompletedDirective
+  ],
   templateUrl: './list-item.component.html',
   styleUrl: './list-item.component.scss',
 })
 export class ListItemComponent {
-  name = input.required<string>();
+  todo = input.required<Todo>();
 
 }

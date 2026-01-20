@@ -1,6 +1,6 @@
 <h2>TODOs</h2>
 <div>
-  @for (todo of todos(); track todo.id; let index = $index) {
-    <ko-list-item [name]="index + 1 + ': ' + todo.todo"></ko-list-item>
+  @for (todo of todos(); track todo.id;) {
+    <ko-list-item [todo]="todo"></ko-list-item>
   }
 </div>
