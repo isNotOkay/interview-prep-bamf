@@ -2,23 +2,34 @@
 <div [formGroup]="form">
   <div>
     <label for="firstname">First Name:</label>
-    <input id="firstname" type="text" formControlName="firstName">
+    <input id="firstname" type="text" formControlName="firstName" required
+           aria-required="true"
+           aria-describedby="firstname-error"
+           [attr.aria-invalid]="form.controls.firstName.invalid"
+    >
     @if (form.controls.firstName.dirty && form.controls.firstName.invalid) {
-      <div class="error">Firstname is required.</div>
+      <div class="error" id="firstname-error">Firstname is required.</div>
     }
   </div>
   <div>
     <label for="lastname">Last Name:</label>
-    <input id="lastname" type="text" formControlName="lastName">
+    <input id="lastname" type="text" formControlName="lastName" required
+           aria-required="true"
+           aria-describedby="lastname-error"
+           [attr.aria-invalid]="form.controls.lastName.invalid">
     @if (form.controls.lastName.dirty && form.controls.lastName.invalid) {
-      <div class="error">LastName is required.</div>
+      <div class="error" id="lastname-error">LastName is required.</div>
     }
   </div>
   <div>
-    <label for="credit-card">Credit Card:</label>
-    <ko-credit-card id="credit-card" formControlName="creditCard"></ko-credit-card>
+    <label id="credit-card">Credit Card:</label>
+    <ko-credit-card id="credit-card" formControlName="creditCard" required
+                    aria-describedby="credit-card-error"
+                    aria-required="true"
+                    [attr.aria-invalid]="form.controls.creditCard.invalid"
+                    aria-labelledby="credit-card"></ko-credit-card>
     @if (form.controls.creditCard.dirty && form.controls.creditCard.invalid) {
-      <div class="error">Credit card is required.</div>
+      <div class="error" id="credit-card-error">Credit card is required.</div>
     }
   </div>
 </div>
