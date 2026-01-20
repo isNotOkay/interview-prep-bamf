@@ -12,7 +12,8 @@
         "@schematics/angular:component": {
           "path": "src/app/components",
           "type": "component",
-          "style": "scss"
+          "style": "scss",
+          "changeDetection": "OnPush"
         },
         "@schematics/angular:directive": {
           "path": "src/app/directives",
