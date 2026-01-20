@@ -1,6 +1,7 @@
 import {Component,} from '@angular/core';
 import {Header} from './header/header';
 import {RouterOutlet} from '@angular/router';
+import { MyLib } from 'my-lib';
 
 export interface User {
   firstName: string;
@@ -9,7 +10,7 @@ export interface User {
 
 @Component({
   selector: 'ko-root',
-  imports: [Header, RouterOutlet],
+  imports: [Header, RouterOutlet, MyLib],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
