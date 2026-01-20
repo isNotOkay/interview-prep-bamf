@@ -4,6 +4,7 @@ import {BehaviorSubject, Observable} from 'rxjs';
 export interface SettingsState {
   firstName: string;
   lastName: string;
+  creditCard: string;
 }
 
 @Injectable({

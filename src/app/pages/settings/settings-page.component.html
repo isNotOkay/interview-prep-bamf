@@ -2,16 +2,23 @@
 <div [formGroup]="form">
   <div>
     <label for="firstname">First Name:</label>
-    <input type="text" formControlName="firstName">
+    <input id="firstname" type="text" formControlName="firstName">
     @if (form.controls.firstName.dirty && form.controls.firstName.invalid) {
       <div class="error">Firstname is required.</div>
     }
   </div>
   <div>
     <label for="lastname">Last Name:</label>
-    <input type="text" formControlName="lastName">
+    <input id="lastname" type="text" formControlName="lastName">
     @if (form.controls.lastName.dirty && form.controls.lastName.invalid) {
       <div class="error">LastName is required.</div>
+    }
+  </div>
+  <div>
+    <label for="credit-card">Credit Card:</label>
+    <ko-credit-card id="credit-card" formControlName="creditCard"></ko-credit-card>
+    @if (form.controls.creditCard.dirty && form.controls.creditCard.invalid) {
+      <div class="error">Credit card is required.</div>
     }
   </div>
 </div>
